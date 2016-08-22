@@ -5,6 +5,8 @@
  */
 package ejercicios;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author SERVIDOR
@@ -28,10 +30,83 @@ public class Ejercicio9 extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtMi = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtMf = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtCll = new javax.swing.JTextField();
+        cmdCalcular = new javax.swing.JButton();
+        cmdBorrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel1.setText("CENTRO DE COMUNICACIONES");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jLabel2.setText("  Monto inicial de la tarjeta:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 210, 30));
+
+        txtMi.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMiKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtMi, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 150, 40));
+
+        jLabel3.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        jLabel3.setText("   Monto final de la tarjeta:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 220, 40));
+
+        txtMf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMfActionPerformed(evt);
+            }
+        });
+        txtMf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMfKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtMf, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 150, 40));
+
+        jLabel4.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jLabel4.setText("  Costo de la llamada:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 160, 30));
+
+        txtCll.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCllKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtCll, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 140, 40));
+
+        cmdCalcular.setBackground(new java.awt.Color(255, 204, 204));
+        cmdCalcular.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cmdCalcular.setText("Calcular");
+        cmdCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCalcularActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 90, 30));
+
+        cmdBorrar.setBackground(new java.awt.Color(255, 204, 204));
+        cmdBorrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cmdBorrar.setText("Borrar");
+        cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBorrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 90, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -46,6 +121,72 @@ public class Ejercicio9 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtMiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMiKeyTyped
+        char c=evt.getKeyChar(); 
+             
+         
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep(); 
+               
+              evt.consume();    
+          } 
+    }//GEN-LAST:event_txtMiKeyTyped
+
+    private void txtMfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMfActionPerformed
+        
+    }//GEN-LAST:event_txtMfActionPerformed
+
+    private void txtMfKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMfKeyTyped
+       char c=evt.getKeyChar(); 
+             
+         
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep(); 
+               
+              evt.consume();    
+          } 
+    }//GEN-LAST:event_txtMfKeyTyped
+
+    private void txtCllKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCllKeyTyped
+        
+    }//GEN-LAST:event_txtCllKeyTyped
+
+    private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
+        String montoi,montof,top;
+        double mi=0,mf=0,totl,op1,op2;
+        if (txtMi.getText().trim().isEmpty()){
+        JOptionPane.showMessageDialog(this,"Digite por favor el monto inicial", "Error", JOptionPane.ERROR_MESSAGE);
+        txtMi.requestFocusInWindow();
+        }
+        else if (txtMf.getText().trim().isEmpty()){
+         JOptionPane.showMessageDialog(this,"Digite por favor el monto final","Error",JOptionPane.ERROR_MESSAGE);   
+          txtMf.requestFocusInWindow();
+        }
+        else{
+            totl=Double.parseDouble(txtCll.getText());
+          op1=(mi-mf);
+          op2=(op1*0.20);
+          totl=(op1+op2);
+        }
+        montoi=String.valueOf(mi);
+        txtMi.setText(montoi);
+        montof=String.valueOf(mf);
+        txtMf.setText(montof);
+        top=String.valueOf(totl);
+        txtCll.setText(top);
+       
+    }//GEN-LAST:event_cmdCalcularActionPerformed
+
+    private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
+        txtCll.setText("");
+        txtMf.setText("");
+        txtMi.setText("");
+        
+      txtMi.requestFocusInWindow();
+      txtMf.requestFocusInWindow();
+        
+    }//GEN-LAST:event_cmdBorrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -83,6 +224,15 @@ public class Ejercicio9 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cmdBorrar;
+    private javax.swing.JButton cmdCalcular;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txtCll;
+    private javax.swing.JTextField txtMf;
+    private javax.swing.JTextField txtMi;
     // End of variables declaration//GEN-END:variables
 }
