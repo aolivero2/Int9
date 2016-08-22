@@ -61,7 +61,7 @@ public class Ejercicio9 extends javax.swing.JFrame {
         });
         jPanel1.add(txtMi, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 150, 40));
 
-        jLabel3.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel3.setText("   Monto final de la tarjeta:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 220, 40));
 
@@ -154,7 +154,7 @@ public class Ejercicio9 extends javax.swing.JFrame {
 
     private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
         String montoi,montof,top;
-        double mi=0,mf=0,totl,op1,op2;
+        double mi=0,mf=0,totl=0,op1,op2;
         if (txtMi.getText().trim().isEmpty()){
         JOptionPane.showMessageDialog(this,"Digite por favor el monto inicial", "Error", JOptionPane.ERROR_MESSAGE);
         txtMi.requestFocusInWindow();
@@ -164,7 +164,8 @@ public class Ejercicio9 extends javax.swing.JFrame {
           txtMf.requestFocusInWindow();
         }
         else{
-            totl=Double.parseDouble(txtCll.getText());
+            mi=Double.parseDouble(txtMi.getText());
+            mf=Double.parseDouble(txtMf.getText());
           op1=(mi-mf);
           op2=(op1*0.20);
           totl=(op1+op2);
